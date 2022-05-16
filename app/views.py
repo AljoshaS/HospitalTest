@@ -5,6 +5,10 @@ from rest_framework import status
 from .models import Doktori, Pacienti, Pregledi, Hospitalizacija, Oddeli
 from .serializer import DoktoriSerializer, PacientiSerializer, PreglediSerializer, HospitalizacijaSerializer, OddeliSerializer
 from rest_framework.permissions import IsAuthenticated
+from allauth.socialaccount.providers.github import views as github_views
+from allauth.socialaccount.providers.oauth2.client import OAuth2Client
+from allauth.socialaccount.providers.github.views import GitHubOAuth2Adapter
+from dj_rest_auth.registration.views import SocialConnectView
 # Create your views here.
 
 class DoktoriView(APIView):
@@ -144,4 +148,10 @@ class PreglediView(APIView):
             pregled_serializer.save()
             return Response(pregled_serializer.data, status=status.HTTP_400_BAD_REQUEST)
         return Response({"errors":pregled_serializer.errors})
+
+class GithubConnect(SocialConnectView):
+    adapter_class = GitHubOAuth2Adapter
+    callback_url = "http://127.0.0.1:800/github/"
+    client_class = OAuth2Client
+
 
