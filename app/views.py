@@ -9,6 +9,8 @@ from allauth.socialaccount.providers.github import views as github_views
 from allauth.socialaccount.providers.oauth2.client import OAuth2Client
 from allauth.socialaccount.providers.github.views import GitHubOAuth2Adapter
 from dj_rest_auth.registration.views import SocialConnectView
+from django.views.generic import TemplateView
+
 # Create your views here.
 
 class DoktoriView(APIView):
@@ -153,5 +155,9 @@ class GithubConnect(SocialConnectView):
     adapter_class = GitHubOAuth2Adapter
     callback_url = "http://127.0.0.1:800/github/"
     client_class = OAuth2Client
+
+class Home(TemplateView):
+    template_name = "home.html"
+
 
 
