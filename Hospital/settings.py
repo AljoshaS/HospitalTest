@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-m++425(()*dn&d739h7+_yf*jj$f%e^$%^sy(l(_rv&ok199#!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,6 +54,7 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -90,10 +91,10 @@ WSGI_APPLICATION = 'Hospital.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE':'django.db.backends.postgresql',
-        'NAME':'HospitalBase',
-        'USER':'postgres',
-        'PASSWORD':'123sql123',
-        'HOST':'127.0.0.1',
+        'NAME':'dfjq9ggja7jl4f',
+        'USER':'whrojdohlntydz',
+        'PASSWORD':'7dbab6980979709602bd484fb35c7a6e88f61b05f5634c35b6848610722078d5',
+        'HOST':'ec2-52-212-228-71.eu-west-1.compute.amazonaws.com',
         'PORT':'5432',
         'OPTIONS':{}
     }
